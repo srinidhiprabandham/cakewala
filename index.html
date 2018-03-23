@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <title>CakeWala</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/app.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/handlebars-v4.0.11.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</head>
+
+<body>
+    <div id="main-content">
+    </div>
+</body>
+
+<script id="entry-page" type="text/x-handlebars-template">
+    <div class="entry">
+        <div class="img-overlay">
+            <button id="regular_cakes" class="btn btn-warning cake-btn btn-custom">Regular Cakes</button>
+            <button id="signature_cakes" class="btn btn-warning cake-btn btn-custom">Signature Cakes</button>
+            <button id="shaped_cakes" class="btn btn-warning cake-btn btn-custom">Shaped Cakes</button>
+            <button id="tiered_cakes" class="btn btn-warning cake-btn btn-custom">Tiered Cakes</button>
+            <button id="barbie_doll_cakes" class="btn btn-warning cake-btn btn-custom">Barbie Doll Cakes</button>
+            <button id="modelled_cakes" class="btn btn-warning cake-btn btn-custom">Modelled Cakes</button>
+            <button id="rice_paper_cakes" class="btn btn-warning cake-btn btn-custom">Rice Paper Cakes</button>
+        </div>
+    </div>
+</script>
+
+
+<script id="large-image" type="text/x-handlebars-template">
+    <div class="cake-img-border">
+        <img src="{{url}}" class="img-fluid cake-img-big cake-image" data-toggle="modal" data-target="{{id}}" />
+        <h2 class="cake-img-name text-right">{{name}}</h2>
+    </div>
+</script>
+
+<script id="small-image" type="text/x-handlebars-template">
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="cake-img-border-small">
+                <img src="{{url}}" class="img-fluid cake-img-small cake-image" data-toggle="modal" data-target="{{id}}" />
+                <div class="img-small-bg">
+                    <h2 class="cake-img-name-small text-right">{{name}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="categories-first-page" type="text/x-handlebars-template">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="cake-background">
+                <img src="./assets/images/homebutton.png" id="home" class="img-fluid float-left home-btn">
+                <h3 class="text-center cake-name">{{category_name}}</h3>
+                <div class="row">
+                    <div class="overall-image">
+                        <div class="col-xs-8">
+                            {{{big_image}}}
+                        </div>
+                        <div class="col-xs-4">
+                            {{{small_image}}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="base-header-page" type="text/x-handlebars-template">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="cake-background">
+                <img src="./assets/images/homebutton.png" id="home" class="img-fluid float-left home-btn">
+                <h3 class="text-center cake-name">{{category_name}}</h3>
+                <div class="row">
+                    {{{rows}}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="modal-image" type="text/x-handlebars-template">
+    <div class="modal fade" id="{{id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width:100%;margin-top:0;">
+            <div class="modal-content">
+                <div class="modal-body" style="padding:0;">
+                    <div class="cake-background">
+                        <img src="./assets/images/close-button.png" class="img-fluid pull-left close-btn close" data-dismiss="modal" aria-label="Close">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div class="cake-img-border-modal">
+                                <img src="{{image}}" class="img-fluid cake-img-big-modal" />
+                                <h2 class="cake-img-name-modal text-right">{{name}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="cake-background">
+        <img src="./assets/images/close-button.png" id="previous" class="img-fluid pull-left close-btn">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="cake-img-border-modal">
+                <img src="{{image}}" class="img-fluid cake-img-big" />
+                <h2 class="cake-img-name text-right">{{name}}</h2>
+            </div>
+        </div>
+    </div> -->
+</script>
+
+<script id="categories-second-page" type="text/x-handlebars-template">
+    <div class="col-xs-4 only-for-big-res">
+        <div class="cake-img-border-small">
+            <img src="{{url}}" class="img-fluid cake-img-small cake-image" data-toggle="modal" data-target="{{id}}" />
+            <div class="img-small-bg">
+                <h2 class="cake-img-name-small text-right">{{name}}</h2>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<script id="navigation" type="text/x-handlebars-template">
+    <div class="col-xs-12">
+        <div class="pull-right buttons-indicator">
+            <img src="./assets/images/left.png" id="previous" class="img-fluid float-left">
+            <img src="./assets/images/centere.png" id="blank" class="img-fluid float-left">
+            <img src="./assets/images/right.png" id="next" class="img-fluid float-left" data-pagination="{{lastIndex}}">
+        </div>
+    </div>
+</script>
+
+
+</html>
